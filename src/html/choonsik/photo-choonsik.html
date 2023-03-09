@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>춘식러버의 페이지 - 춘식이 화보</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/choonsikEffect.css">
+    <link rel="stylesheet" href="./css/sub-choonsik.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="inner">
+            <nav class="nav">
+                <button class="barMenu">
+                    <span class="bar"></span>
+                </button>
+                <div class="gnb-wrapper">
+                    <div class="gnb-inner">
+                        <button class="closeGnb">x</button>
+                        <ul class="gnb">
+                            <li><a href="./about-choonsik.html">춘식이 소개</a></li>
+                            <li><a href="./room-choonsik.html">춘식이방</a></li>
+                            <li><a href="./photo-choonsik.html">춘식이 화보</a></li>
+                            <li><a href="./diary-choonsik.html">춘식일기</a></li>
+                            <li><a href="./game-choonsik.html">춘식게임</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <h1 class="logo">
+                <a href="./choonsik_lover.html">
+                    <img src="https://item.kakaocdn.net/do/b5d3d6a7b67fbf5afdaffb79fffbf8b18f324a0b9c48f77dbce3a43bd11ce785"
+                        alt="춘식">
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <div class="choonsik-lover-wrapper" style="position: relative;top:0">
+        <div class="model-choonsik">
+            <h3 class="dancer-choonsik">cutie k-pop dancer choonsik</h3>
+
+            <div class="model-choonsik-photo">
+                <span class="choonsik-photo show"><img
+                        src="https://pbs.twimg.com/media/E5I4k-0UcAUFumc?format=jpg&name=900x900" alt="춘식 댄스 티져"></span>
+                <span class="choonsik-photo"><img
+                        src="https://blog.kakaocdn.net/dn/ba1Ajk/btq8ZJCvHeQ/d5MkQTXVnxzjI5GglnD30k/img.png"
+                        alt="분노 춘식"></span>
+                <span class="choonsik-photo"><img
+                        src="https://t2.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/e2VR/image/4FpkOSGfEf5scJFHCJ5ZUTP1Z3Q.png"
+                        alt="멋짐 춘식"></span>
+            </div>
+
+            <!-- 버튼 클릭 시 choonskik-photo 노출 -->
+            <div class="photo-type-button-wrap">
+                <button class="btn-photo btn-neon btn-slow on">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    춘식 댄스 티져
+                </button>
+                <button class="btn-photo btn-neon btn-blue btn-slow">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    분노 춘식
+                </button>
+                <button class="btn-photo btn-neon btn-purple btn-slow">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    멋짐 춘식
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>      
+        const btnPhoto = document.querySelectorAll(".btn-photo");
+        const choonsikPhoto = document.querySelectorAll(".choonsik-photo");
+
+        btnPhoto.forEach((gallery, idx) => {
+            gallery.addEventListener("click", () => {
+                choonsikPhoto.forEach((photo) => {
+                    photo.classList.remove('show')
+                })
+
+                btnPhoto.forEach((btn) => {
+                    btn.classList.remove("on")
+                })
+
+                btnPhoto[idx].classList.add("on");
+                choonsikPhoto[idx].classList.add("show");
+            })
+        })
+    </script>
+</body>
+
+</html>

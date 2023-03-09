@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>춘식러버의 페이지</title>  
+</head>
+
+<body>
+    <header id="header" style="display: none;">
+        <div class="inner">
+            <nav class="nav">
+                <button class="barMenu">
+                    <span class="bar"></span>
+                </button>
+                <div class="gnb-wrapper">
+                    <div class="gnb-inner">
+                        <button class="closeGnb">x</button>
+                        <ul class="gnb">
+                            <li><a href="./about-choonsik.html">춘식이 소개</a></li>
+                            <li><a href="./room-choonsik.html">춘식이방</a></li>
+                            <li><a href="./photo-choonsik.html">춘식이 화보</a></li>
+                            <li><a href="./diary-choonsik.html">춘식일기</a></li>
+                            <li><a href="./game-choonsik.html">춘식게임</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <h1 class="logo">
+                <a href="./choonsik_lover.html">
+                    <img src="https://item.kakaocdn.net/do/b5d3d6a7b67fbf5afdaffb79fffbf8b18f324a0b9c48f77dbce3a43bd11ce785"
+                        alt="춘식">
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <div class="choonsik-lover-wrapper">
+        <section class="visual">
+            <div class="marquee_wrap">
+                <div class="marquee_box">
+                    <span class="marquee_text">lovely choonsik</span>
+                </div>
+                <div class="marquee_box">
+                    <span class="marquee_text">lovely choonsik</span>
+                </div>
+                <div class="marquee_box">
+                    <span class="marquee_text">lovely choonsik</span>
+                </div>
+                <div class="marquee_box">
+                    <span class="marquee_text">lovely choonsik</span>
+                </div>
+            </div>
+
+            <div class="floating-obj">
+                <span class="obj-item"><img
+                        src="https://item.kakaocdn.net/do/c5c470298d527ef65eb52883f0f186c49f5287469802eca457586a25a096fd31"
+                        alt="춘식하트"></span>
+                <span class="obj-item"><img
+                        src="https://item.kakaocdn.net/do/c5c470298d527ef65eb52883f0f186c4f604e7b0e6900f9ac53a43965300eb9a"
+                        alt="춘식꾹꾹"></span>
+                <span class="obj-item"><img
+                        src="https://item.kakaocdn.net/do/c5c470298d527ef65eb52883f0f186c482f3bd8c9735553d03f6f982e10ebe70"
+                        alt="춘식무지개"></span>
+            </div>
+        </section>
+
+
+
+        <section id="one" class="contentsBox">
+            <div class="row no-gutters">
+                <div class="col">
+                    <div class="rectangle"></div>
+                    <div class="about-choonsik">
+                        <div class="text-block">
+                            <h2 class="mb-0">choonsik</h2>
+                            <h5>happy</h5>
+                        </div>
+                        <div class="blocks">
+                            <div class="faces"></div>
+                            <div class="faces"></div>
+                            <div class="faces"></div>
+                            <div class="faces"></div>
+                            <div class="faces"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="two" class="contentsBox">
+            <div class="row no-gutters">
+                <div class="col">
+                    <div class="room-choonsik">
+                        <div>
+                            <img src="https://i.pinimg.com/originals/95/8f/59/958f599f934e94f63d6d60b676707ece.png"
+                                class="img-fluid" alt="Responsive image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="three" class="contentsBox">
+            <div class="image"></div>
+            <div class="row no-gutters">
+                <div class="col">
+                    <div class="elem">
+                        <h2>GET OUT THERE</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="four" class="section">
+            <div class="image"></div>
+            <div class="row no-gutters">
+                <div class="col">
+                    <div class="elem">
+                        <h2>GO RIDE</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <script src="./node_modules/animejs/lib/anime.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="./js/choonsik.js"></script>
+
+    <script>
+        var tl = anime.timeline({
+            targets: '.floating-obj .obj-item',
+            delay: function (el, i) { return i * 200 },
+            duration: 500,
+            easing: 'easeOutExpo',
+            direction: 'alternate',
+            loop: true
+        });
+
+        tl
+            .add({
+                translateX: 250,
+                easing: 'spring',
+            })
+            .add({
+                opacity: .5,
+                scale: 2
+            })
+            .add({
+                targets: '.floating-obj .obj-item.triangle',
+                rotate: 180
+            })
+            .add({
+                translateX: 0,
+                scale: 1
+            });       
+    </script>
+</body>
+
+</html>

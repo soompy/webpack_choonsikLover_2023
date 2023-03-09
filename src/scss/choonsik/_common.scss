@@ -1,0 +1,106 @@
+@import url("http://fonts.cdnfonts.com/css/montserrat");
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+@import url(../css/reset.css);
+@import url(../css/icon.css);
+@import url(../css/darkMode.css);
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.area-common {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 0 50px;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid var(--fontColor);
+  background: var(--normalBg);
+  font-family: 'Indie Flower', cursive;
+  .inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 50px;
+  }
+
+  .logo {
+    a {
+      .logo-normal {
+        display: block;
+      }
+      .logo-dark {
+        display: none;
+      }
+    }
+  }
+
+  .nav {
+    margin-left: auto;
+    .gnb {
+      display: flex;
+      align-items: center;
+      li {
+        margin: 0 20px;
+        a {
+          font-size: 2vmin;
+          font-family: "Hi Melody";
+        }
+      }
+    }
+  }
+
+  .themeSwitch {
+    width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .fa-adjust {
+      transform: rotate(180deg);
+    }
+    div {
+      position: relative;
+      display: block;
+      background: #eee;
+      width: 30px;
+      border-radius: 50px;
+      padding: 0 5px;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+    input {
+      display: none;
+    }
+
+    .slider {
+      background-color: var(--themeSwitchColor);
+      transition: 0.4s;
+      border-radius: 34px;
+      height: 12px;
+      width: 12px;
+      display: inline-block;
+      position: relative;
+    }
+
+    input:checked + .slider {
+      transform: translateX(8px);
+    }
+  }
+}

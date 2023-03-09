@@ -1,0 +1,161 @@
+@import url(../css/common.css);
+@import url(../css/darkMode.css);
+
+#subVisual {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    font-family: Montserrat, sans-serif;
+    font-weight: 900;
+    .inner {
+        height: 100%;
+        svg {
+            height: 100%;
+        }
+    }
+    .point {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        width: 40%;
+        max-width: 200px;
+        max-height: 40%;
+    }
+}
+
+.career-intro {
+    --time-slot-length: 0.1s;
+    --t1x: var(--time-slot-length);
+    --t2x: calc(var(--time-slot-length) * 2);
+    --t3x: calc(var(--time-slot-length) * 3);
+    --t4x: calc(var(--time-slot-length) * 4);
+    --color: dodgerblue;
+    background: var(--fontColor);
+    button {
+        color: white;
+        list-style-type: none;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        width: 8em;
+        height: 3em;
+        box-sizing: border-box;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 0.1em;
+        text-align: center;
+        line-height: 3em;
+        letter-spacing: 0.1em;
+        position: relative;
+        transition: var(--t4x); /* duration 4x */
+        margin: 1em;
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-radius: inherit;
+            visibility: hidden;
+        }
+        &:before {
+            top: -1px;
+            left: -1px;
+            border: 1px solid;
+            border-color: var(--color) var(--color) transparent transparent;
+            transition:
+                height linear var(--t1x) var(--t2x), /* delay 2x */
+                width linear var(--t1x) var(--t3x), /* delay 3x */
+                visibility 0s var(--t4x); /* delay 4x */
+        }
+        &:after {
+            bottom: -1px;
+            right: -1px;
+            border: 1px solid;
+            border-color: transparent transparent var(--color) var(--color);
+            transition:
+                height linear var(--t1x),
+                width linear var(--t1x) var(--t1x), /* delay 1x */
+                visibility 0s var(--t2x);  /* delay 2x */
+        }
+        &:hover {
+            color: var(--color);
+            animation: pulse ease-out 1s var(--t4x);
+            &:before, &:after {
+                width: 100%;
+                height: 100%;
+                visibility: visible;
+            }
+            &:before {
+                transition:
+                visibility 0s,
+                width linear var(--t1x),
+                height linear var(--t1x) var(--t1x);
+            }
+            &:after {
+                transition: 
+                visibility 0s var(--t2x), /* delay 2x */
+                width linear var(--t1x) var(--t2x), /* delay 2x */
+                height linear var(--t1x) var(--t3x);
+            }
+        }
+    }
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #16A085 0%, #F4D03F  51%, #16A085  100%);
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    &:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+      }
+  }
+
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 hsla(210, 100%, 56%, 0.5);
+    }
+
+    to {
+        box-shadow: 0 0 0 1em hsla(210, 100%, 56%, 0);
+    }
+}
+
+// career
+.glow {
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--neonLight);
+    cursor: pointer;
+    &:hover {
+        transition: .5s;
+        animation: glow 1.5s ease-in-out infinite alternate;
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow:
+        0 0 5px var(--neonLight) , 0 0 10px var(--neonLight) , 0 0 20px var(--neonLight) ,
+        0 0 7px #1abc9c , 0 0 12px #1abc9c , 0 0 15px #1abc9c ,
+        0 0 60px #16a085, 0 0 80px #16a085, 0 0 90px #16a085,
+        0 0 110px #218c74, 0 0 160px #218c74;
+    }
+    100% {
+        text-shadow: 0 0 5px var(--neonLight)  , 0 0 10px var(--neonLight)   , 0 0 15px var(--neonLight) ,
+        0 0 7px #1abc9c , 0 0 12px #1abc9c , 0 0 15px #1abc9c ,
+        0 0 30px #16a085, 0 0 45px #16a085, 0 0 50px #16a085,
+        0 0 60px #218c74, 0 0 85px #218c74;
+    }
+}

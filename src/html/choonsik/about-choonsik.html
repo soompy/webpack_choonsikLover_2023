@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>춘식러버의 페이지 - 춘식이 소개</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/choonsikEffect.css">
+    <link rel="stylesheet" href="./css/sub-choonsik.css">
+    <link rel="stylesheet" href="./css/threeD.css">
+</head>
+
+<body>
+    <header id="header">
+        <div class="inner">
+            <nav class="nav">
+                <button class="barMenu">
+                    <span class="bar"></span>
+                </button>
+                <div class="gnb-wrapper">
+                    <div class="gnb-inner">
+                        <button class="closeGnb">x</button>
+                        <ul class="gnb">
+                            <li><a href="./about-choonsik.html">춘식이 소개</a></li>
+                            <li><a href="./room-choonsik.html">춘식이방</a></li>
+                            <li><a href="./photo-choonsik.html">춘식이 화보</a></li>
+                            <li><a href="./diary-choonsik.html">춘식일기</a></li>
+                            <li><a href="./game-choonsik.html">춘식게임</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <h1 class="logo">
+                <a href="./choonsik_lover.html">
+                    <img src="https://item.kakaocdn.net/do/b5d3d6a7b67fbf5afdaffb79fffbf8b18f324a0b9c48f77dbce3a43bd11ce785"
+                        alt="춘식">
+                </a>
+            </h1>
+        </div>
+    </header>
+
+    <div class="choonsik-lover-wrapper">
+        <div class="introduce-choonsik">
+            <p>
+                <span>cute</span>
+                <span>lovely</span>
+                <span>choonsik</span>
+            </p>
+        </div>
+
+        <div class="profile-choonsik">
+            <div class="profile-box">
+                <div class="profile-item">
+                    <p class="text">choonsik</p>
+                </div>
+                <div class="profile-item">
+                    <span class="circle"></span>
+                </div>
+            </div>
+            <div class="profile-box">
+                <div class="profile-item">
+                    <span class="square"></span>
+                </div>
+                <div class="profile-item">
+                    <span class="triangle"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 춘식이 매력도 -->
+        <section class="choonsik-chart">
+            <h3>춘식이의 매력을 알아볼까용</h3>
+            <span class="lovely-text">매력도 click!!</span>
+            <canvas id="lovelyChoonsik"></canvas>
+        </section>        
+
+    </div>
+
+    <script src="./node_modules/animejs/lib/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>        
+
+    <script>
+        function randomValues() {
+            anime({
+                targets: '.random-demo .el',
+                translateX: function () {
+                    return anime.random(0, 270);
+                },
+                easing: 'easeInOutQuad',
+                duration: 750,
+                complete: randomValues
+            });
+        }
+
+        randomValues();
+    </script>
+
+    <script>
+        anime({
+            targets: '.specific-prop-params-demo .el',
+            translateX: {
+                value: 250,
+                duration: 800
+            },
+            rotate: {
+                value: 360,
+                duration: 1800,
+                easing: 'easeInOutSine'
+            },
+            scale: {
+                value: 2,
+                duration: 1600,
+                delay: 800,
+                easing: 'easeInOutQuart'
+            },
+            delay: 250
+        });
+
+        const ctx = document.getElementById('lovelyChoonsik');
+
+        new Chart(ctx, {
+            type: 'doughnut',
+            tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+            data: {
+                labels: ['귀여움', '사랑스러움', '깜찍함', '멋짐'],
+                datasets: [{
+                    label: 'lovely choonsik',
+                    data: [25, 19, 13, 15],                    
+                    backgroundColor: [
+                        "#F6F7C1",
+                        "#BEF0CB",
+                        "#D1FFF3",
+                        "#C1AEFC"
+                    ],
+                }],                
+            },
+            options: {            
+                scales: {
+                    x: {             
+                        grid: {
+                            display: false
+                        },
+                    },
+                    y: {
+                        grid: {
+                            display: false
+                        },
+                        beginAtZero: true
+                    }
+                },
+                responsive: false,
+                plugins: {                
+                    datalabels: {
+                        formatter: (value) => {
+                            return value + '%';
+                        },
+                    },
+                },
+            },        
+        });
+    </script>
+</body>
+
+</html>
