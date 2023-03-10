@@ -2,15 +2,22 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+
 module.exports = {
-  entry: './src/index.js',
+  // entry: './src/index.js',  
+  entry: {
+    main: [
+      './src/scss/style.scss',
+      './src/index.js'
+    ],
+  },
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
     clean: true,
   },
   module: {
-    rules: [      
+    rules: [
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
@@ -25,7 +32,7 @@ module.exports = {
           // Compiles Sass to CSS
           "sass-loader",
         ],
-      },      
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -35,7 +42,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: './src/index.html' }),
-    new MiniCssExtractPlugin({ filename: './css/style.css' })
+    new MiniCssExtractPlugin({ filename: './css/style.css' }),    
   ],
   devServer: {
     historyApiFallback: true,
